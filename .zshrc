@@ -1,12 +1,12 @@
-#plugins=(
-#  git
-#  zsh-autosuggestions
-#)
+export ZSH="${ZDOTDIR:-$HOME}/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+plugins=(
+  git
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias cb="git fetch --prune && git branch -vv | grep ': gone]'|  grep -v '\*' | awk '{ print \$1; }' | xargs git branch -d"
