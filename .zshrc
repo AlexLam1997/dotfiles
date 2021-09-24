@@ -1,8 +1,14 @@
-plugins=(
-  git
-  zsh-autosuggestions
-)
+#plugins=(
+#  git
+#  zsh-autosuggestions
+#)
 
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Aliases
 alias cb="git fetch --prune && git branch -vv | grep ': gone]'|  grep -v '\*' | awk '{ print \$1; }' | xargs git branch -d"
 alias cbf="git fetch --prune && git branch -vv | grep ': gone]'|  grep -v '\*' | awk '{ print \$1; }' | xargs git branch -D"
 alias up="dev up && dev s"
@@ -10,6 +16,7 @@ alias down="dev down"
 alias val="rubocop && dev t"
 #if [ -e /Users/alexlam/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/alexlam/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+# Functions
 function graphql() {
   open "https://app.$(spin info fqdn)/services/internal/shops/1/graphql"
 }
@@ -36,4 +43,13 @@ function internal_shopify(){
 
 function letter_opener() {
   open "https://$(spin info fqdn)/letter_opener"
+}
+
+function ff(){
+  if [ -n "$1" ]
+  then
+    git rebase -i HEAD~$1
+  else
+    git rebase -i HEAD~2
+  fi
 }
