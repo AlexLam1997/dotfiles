@@ -15,6 +15,12 @@
 [user]
         name = Alexander Lam
         email = alexander.lam@shopify.com
+[commit]
+  template = "~/.gitmessage"
+[credential]
+        helper = store --file /opt/dev/var/private/git_credential_store
+[pull]
+        ff = only
 [alias]
 #cb = git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs git branch -d
 lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
@@ -23,10 +29,3 @@ lg = !"git lg1"
 fdiff = diff-tree --no-commit-id --name-only -r
 ign = update-index --assume-unchanged
 nign = update-index --no-assume-unchanged
-[commit]
-  template = "~/.gitmessage"
-[credential]
-        helper =
-        helper = store --file /opt/dev/var/private/git_credential_store
-[pull]
-        ff = only
