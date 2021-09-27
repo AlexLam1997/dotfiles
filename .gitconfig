@@ -1,6 +1,11 @@
+[user]
+        name = Alexander Lam
+        email = alexander.lam@shopify.com
 [core]
         commitGraph = true
-        editor = code -w
+        editor = vim
+[fetch]
+	prune = true
 [diff]
         algorithm = patience
 [gc]
@@ -12,9 +17,6 @@
         insteadOf = git@github.com:shopify/
         insteadOf = ssh://git@github.com/Shopify/
         insteadOf = ssh://git@github.com/shopify/
-[user]
-        name = Alexander Lam
-        email = alexander.lam@shopify.com
 [commit]
   template = "~/.gitmessage"
 [credential]
