@@ -46,6 +46,8 @@ function letter_opener() {
 }
 
 function ff(){
+  git add .
+  git commit -am'f'
   if [ -n "$1" ]
   then
     git rebase -i HEAD~$1
