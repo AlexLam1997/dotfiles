@@ -1,4 +1,4 @@
-FILES=".gitconfig .tmux.conf .gitignore .zpreztorc .zshrc"
+FILES=".gitconfig .tmux.conf .gitignore .zshrc"
 DOTFILE_DIR=$(pwd)
 
 #git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
