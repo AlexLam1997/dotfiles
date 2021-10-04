@@ -1,11 +1,11 @@
-#!/bin/zsh
+#!/bin/bash
 FILES=".gitconfig .tmux.conf .gitignore .zshrc"
 DOTFILE_DIR=$(pwd)
 
 #git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 # Install ohmyzsh
-if ! command -v zsh &> /dev/null
+if ! command -v $ZSH &> /dev/null
 then
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   # Get ohmyzsh plugins
