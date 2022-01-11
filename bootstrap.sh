@@ -16,15 +16,13 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # Oh My Zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &> log.out || echo "auto-suggestions already installed" 
 
-FILES=".gitconfig .gitignore"
 DOTFILE_DIR=$(pwd)
 
 #Zsh
 ln -sfn $DOTFILE_DIR/zsh ~/.zsh
 ln -sfn $DOTFILE_DIR/zsh/.zshrc ~/.zshrc 
 
-for FILE in $FILES; do
-  ln -sf $DOTFILE_DIR/$FILE ~/$FILE
-done
+ln -sfn $DOTFILE_DIR/.gitconfig ~/.gitconfig
+ln -sfn $DOTFILE_DIR/.gitignore ~/.gitignore
 
 source ~/.zshrc
