@@ -10,6 +10,24 @@ function ff(){
   fi
 }
 
+# Isospin functions
+function debug() {
+  local repo=${1:-email}    
+  sc stop proc-shopify--"$repo"@server.service
+  RAILS_ENV=development RACK_TIMEOUT_SERVICE_TIMEOUT=false bin/rails server -p $PORT
+  # Add commands to start job processes in other tabs
+}
+
+function db() {
+  mysql -u root -P "$MYSQL_PORT" -e "GRANT ALL PRIVILEGES ON *.* to 'root'@'%';"
+}
+
+function open_db() {
+  host=${1:-c1fb}
+  port=${2}
+  open "mysql://root:@shop1.shopify."$host".alexander-lam.us.spin.dev:"$port""
+}
+
 #Spin functions
 function graphql() {
   open "https://app.$(spin info fqdn)/services/internal/shops/1/graphql"
