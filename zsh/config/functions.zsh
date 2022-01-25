@@ -18,41 +18,71 @@ function debug() {
   # Add commands to start job processes in other tabs
 }
 
-function db() {
-  mysql -u root -P "$MYSQL_PORT" -e "GRANT ALL PRIVILEGES ON *.* to 'root'@'%';"
-}
+function open_db {
+  # Opens sql ace with db config for current instance. $1 is the repo name
+  local repo=${1:-email};
+  if [[ "$repo" = email ]]
+  then
+    local schema=${2:-email_development}
+  else
+    local schema=${2:-shopify_dev_shard_0}
+  fi
 
-function open_db() {
-  host=${1:-c1fb}
-  port=${2}
-  open "mysql://root:@shop1.shopify."$host".alexander-lam.us.spin.dev:"$port""
+  open "mysql://root@$repo.$(spin info fqdn):$(spin shell -- cat /home/spin/src/github.com/Shopify/$repo/.shadowenv.d/500-spin-svc-mysql.lisp | grep MYSQL_PORT | egrep -o '\d*')/$schema" -a "Sequel Ace"
 }
 
 #Spin functions
 function graphql() {
-  open "https://app.$(spin info fqdn)/services/internal/shops/1/graphql"
+  if [[ $1 = 'legacy' ]]
+  then
+    open "https://app.$(spin info fqdn)/services/internal/shops/1/graphql"
+  else
+    open "https://app.shopify.$(spin info fqdn)/services/internal/shops/1/graphql"
+  fi
 }
 
 function graphql_email() {
-  open "https://$(spin info fqdn)/graphiql"
-}
-
-function sqla() {
-  open "mysql://root@$(spin info fqdn)/shopify_dev_shard_0" -a "Sequel Ace"
+  # https://email.nui9.alexander-lam.us.spin.dev/graphiql
+  if [[ $1 = 'legacy' ]]
+  then
+    open "https://$(spin info fqdn)/graphiql"
+  else
+    open "https://email.$(spin info fqdn)/graphiql"
+  fi
 }
 
 function admin() {
-   open "https://$(spin info fqdn)/admin"
+  if [[ $1 = 'legacy' ]]
+  then
+    open "https://$(spin info fqdn)/admin"
+  else
+    open "https://shop1.shopify.$(spin info fqdn)/admin"
+  fi
 }
 
 function internal_email() {
-  open "https://$(spin info fqdn)/management/internal/shops/1"
+  if [[ $1 = 'legacy' ]]
+  then
+    open "https://$(spin info fqdn)/management/internal/shops/1"
+  else
+    open "https://email.$(spin info fqdn)/management/internal/shops/1"
+  fi
 }
 
 function internal_shopify(){
-  open "https://app.$(spin info fqdn)/services/internal/shops/1"
+  if [[ $1 = 'legacy' ]]
+  then
+    open "https://app.$(spin info fqdn)/services/internal/shops/1"
+  else
+    open "https://app.shopify.$(spin info fqdn)/services/internal/shops/1"
+  fi
 }
 
 function letter_opener() {
-  open "https://$(spin info fqdn)/letter_opener"
+  if [[ $1 = 'legacy' ]]
+  then
+    open "https://$(spin info fqdn)/letter_opener"
+  else
+    open "https://email.$(spin info fqdn)/letter_opener"
+  fi
 }
