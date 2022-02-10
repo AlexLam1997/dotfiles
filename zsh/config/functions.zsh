@@ -28,7 +28,7 @@ function open_db {
     local schema=${2:-shopify_dev_shard_0}
   fi
 
-  open "mysql://root@$repo.$(spin info fqdn):$(spin shell -- cat /home/spin/src/github.com/Shopify/$repo/.shadowenv.d/500-spin-svc-mysql.lisp | grep MYSQL_PORT | egrep -o '\d*')/$schema" -a "Sequel Ace"
+  open "mysql://root@$repo.$(spin show -o fqdn --latest):$(spin shell -- cat /home/spin/src/github.com/Shopify/$repo/.shadowenv.d/500-spin-svc-mysql.lisp | grep MYSQL_PORT | egrep -o '\d*')/$schema" -a "Sequel Ace"
 }
 
 #Spin functions
