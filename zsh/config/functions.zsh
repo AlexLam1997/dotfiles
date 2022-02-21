@@ -35,54 +35,59 @@ function open_db {
 function graphql() {
   if [[ $1 = 'legacy' ]]
   then
-    open "https://app.$(spin info fqdn)/services/internal/shops/1/graphql"
+    open "https://app.$(spin show -o fqdn --latest)/services/internal/shops/1/graphql"
   else
-    open "https://app.shopify.$(spin info fqdn)/services/internal/shops/1/graphql"
+    open "https://app.shopify.$(spin show -o fqdn --latest)/services/internal/shops/1/graphql"
   fi
+}
+
+# Kills active servers
+function kill(){
+  kill -9 $(cat tmp/pids/server.pid)
 }
 
 function graphql_email() {
   # https://email.nui9.alexander-lam.us.spin.dev/graphiql
   if [[ $1 = 'legacy' ]]
   then
-    open "https://$(spin info fqdn)/graphiql"
+    open "https://$(spin show -o fqdn --latest)/graphiql"
   else
-    open "https://email.$(spin info fqdn)/graphiql"
+    open "https://email.$(spin show -o fqdn --latest)/graphiql"
   fi
 }
 
 function admin() {
   if [[ $1 = 'legacy' ]]
   then
-    open "https://$(spin info fqdn)/admin"
+    open "https://$(spin show -o fqdn --latest)/admin"
   else
-    open "https://shop1.shopify.$(spin info fqdn)/admin"
+    open "https://shop1.shopify.$(spin show -o fqdn --latest)/admin"
   fi
 }
 
 function internal_email() {
   if [[ $1 = 'legacy' ]]
   then
-    open "https://$(spin info fqdn)/management/internal/shops/1"
+    open "https://$(spin show -o fqdn --latest)/management/internal/shops/1"
   else
-    open "https://email.$(spin info fqdn)/management/internal/shops/1"
+    open "https://email.$(spin show -o fqdn --latest)/management/internal/shops/1"
   fi
 }
 
 function internal_shopify(){
   if [[ $1 = 'legacy' ]]
   then
-    open "https://app.$(spin info fqdn)/services/internal/shops/1"
+    open "https://app.$(spin show -o fqdn --latest)/services/internal/shops/1"
   else
-    open "https://app.shopify.$(spin info fqdn)/services/internal/shops/1"
+    open "https://app.shopify.$(spin show -o fqdn --latest)/services/internal/shops/1"
   fi
 }
 
 function letter_opener() {
   if [[ $1 = 'legacy' ]]
   then
-    open "https://$(spin info fqdn)/letter_opener"
+    open "https://$(spin show -o fqdn --latest)/letter_opener"
   else
-    open "https://email.$(spin info fqdn)/letter_opener"
+    open "https://email.$(spin show -o fqdn --latest)/letter_opener"
   fi
 }
