@@ -7,7 +7,7 @@ then
   if [[ "$SPIN_REPO_SOURCE_PATH" = "/src/github.com/shopify/shopify" ]]
   then
     cartridge insert AlexLam1997/bootstrap
-    . /cartridges/bootstrap/setup.sh
+    ~/.data/cartridges/bootstrap/setup.sh
   fi
 fi
 
