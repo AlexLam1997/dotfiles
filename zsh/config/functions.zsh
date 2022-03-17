@@ -45,25 +45,25 @@ function open_db {
 
 # The following functions open the specified resource
 function graphql() {
-  open "https://app.shopify.$(spin show -o fqdn --latest)/services/internal/shops/1/graphql"
+  open "https://app.shopify.$(spin show -o fqdn)/services/internal/shops/1/graphql"
 }
 
 function graphql_email() {
-  open "https://email.$(spin show -o fqdn --latest)/graphiql"
+  open "https://email.$(spin show -o fqdn)/graphiql"
 }
 
 function admin() {
-  open "https://shop1.shopify.$(spin show -o fqdn --latest)/admin"
+  open "https://shop1.shopify.$(spin show -o fqdn)/admin"
 }
 
 function internal_email() {
-  open "https://email.$(spin show -o fqdn --latest)/management/internal/shops/1"
+  open "https://email.$(spin show -o fqdn)/management/internal/shops/1"
 }
 
 function internal_shopify(){
-  open "https://app.shopify.$(spin show -o fqdn --latest)/services/internal/shops/1"
+  open "https://app.shopify.$(spin show -o fqdn)/services/internal/shops/1"
 }
 
 function letter_opener() {
-  open "https://email.$(spin show -o fqdn --latest)/letter_opener"
+  open "https://email.$(spin show -o fqdn)/letter_opener"
 }
