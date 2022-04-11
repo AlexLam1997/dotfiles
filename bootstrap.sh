@@ -3,11 +3,12 @@
 # Only run nested steps in Spin workspaces.
 if [[ "$SPIN" = 1 ]]
 then
-  # Only run nested steps in Spin + shopify/shopify workspaces.
   if [[ "$SPIN_REPO_SOURCE_PATH" = "/home/spin/src/github.com/Shopify/shopify" ]]
   then
-    cartridge insert AlexLam1997/bootstrap
-    ~/.data/cartridges/bootstrap/setup.sh
+    cd ~/src/github.com/Shopify/shopify && shop import shopify-db
+  elif [[ "$SPIN_REPO_SOURCE_PATH" = "/home/spin/src/github.com/Shopify/email" ]]
+  then
+    cd ~/src/github.com/Shopify/email && shop import email-db
   fi
 fi
 
