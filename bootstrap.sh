@@ -1,15 +1,9 @@
 #!/bin/zsh
 
 # Only run nested steps in Spin workspaces.
-if [[ "$SPIN" = 1 ]]
-then
-  if [[ "$SPIN_REPO_SOURCE_PATH" = "/home/spin/src/github.com/Shopify/shopify" ]]
-  then
-    cd ~/src/github.com/Shopify/shopify && shop import shopify-db
-  elif [[ "$SPIN_REPO_SOURCE_PATH" = "/home/spin/src/github.com/Shopify/email" ]]
-  then
-    cd ~/src/github.com/Shopify/email && shop import email-db
-  fi
+if [ "$SPIN" ]; then
+  cartridge insert bootstrap
+  /usr/bin/sh "/home/spin/.data/cartridges/bootstrap/setup.sh"
 fi
 
 # Install Oh My Zsh
