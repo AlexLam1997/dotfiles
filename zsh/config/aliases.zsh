@@ -1,4 +1,5 @@
 # Local aliases
+alias k="kubectl"
 
 # Git aliases
 # Prune branch

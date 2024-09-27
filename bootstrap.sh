@@ -8,10 +8,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 DOTFILE_DIR=$(pwd)
 
 # Link dotfiles
+ln -sfn $DOTFILE_DIR/.zshenv ~/.zshenv
+
 ln -sfn $DOTFILE_DIR/zsh ~/.zsh
-ln -sfn $DOTFILE_DIR/zsh/.zshrc ~/.zshrc 
+# ln -sfn $DOTFILE_DIR/zsh/.zshrc ~/.zshrc 
 
 ln -sfn $DOTFILE_DIR/.gitconfig ~/.gitconfig
-ln -sfn $DOTFILE_DIR/.gitignore ~/.gitignore
 
-source ~/.zshrc
+source $ZDOTDIR/.zshrc

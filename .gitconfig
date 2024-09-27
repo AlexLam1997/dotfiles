@@ -1,21 +1,24 @@
 [user]
-        name = Alexander Lam
-        email = alexander.lam@lightspeedhq.com
+	name = Alexander Lam
+	email = alexander.lam@lightspeedhq.com
+	signingkey = 037D236B3B5760E0
 [core]
-        commitGraph = true
-        editor = vim
+	commitGraph = true
+	editor = vim
 [fetch]
 	prune = true
+[commit]
+	gpgsign = true
 [diff]
-        algorithm = patience
+	algorithm = patience
 [gc]
-        writeCommitGraph = true
+	writeCommitGraph = true
 [protocol]
-        version = 2
+	version = 2
 [rebase]
 	autosquash = true
 [pull]
-        ff = only
+	ff = only
 [alias]
 lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
